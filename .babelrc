@@ -11,7 +11,7 @@
             "@babel/preset-env",
             {
                 "targets": {
-                    "browesers": [
+                    "browsers": [
                         "> 1%",
                         "last 2 versions"
                     ]

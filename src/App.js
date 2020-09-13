@@ -1,24 +1,29 @@
-import React, {Component , lazy} from 'react';
-import {Link ,Switch, Route} from 'react-router';
+import React, { Component, lazy,Suspense } from 'react';
+import { Switch, Route, Link } from 'react-router-dom';
 
+import Users from './containers/Users';
 
-const Pizza= lazy( ()=>import('./containers/Pizza'));
-class App extends Component{
+const Pizza = lazy(() => import('./containers/Pizza'));
 
-    render(){
+class App extends Component {
 
-        return(
+    render() {
+
+        return (
             <>
                 <div className="App">
-                <Link to="/" >Users</Link>
-                <Link to="/pizza" >Pizza</Link>
-            </div>
-            <Switch>
-                <Route exact path='/'  Component={Users}/>
-                <Route  path='/pizza'  Component={Pizza}/>
-            </Switch>
+                    <Link to="/" >Users</Link>
+                    <Link to="/pizza" >Pizza</Link>
+                </div>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Switch>
+                        <Route exact path='/' component={Users} />
+                        <Route path='/pizza' component={Pizza} />
+                    </Switch>
+                </Suspense>
+
             </>
-            
+
         );
     }
 }

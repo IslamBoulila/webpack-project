@@ -14,4 +14,4 @@ const Users =( props)=>{
      );
 }
 
-export default Pizza;
+export default Users;
