@@ -1,0 +1,24 @@
+/*
+** babel-loader is the webpack loader responsible for talking to Babel.
+ Babel on the other hand must be configured to use presets. We need two of them:
+
+1- babel preset env for compiling modern Javascript down to ES5
+2- babel preset react for compiling JSX and other stuff down to Javascript
+*/
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "browesers": [
+                        "> 1%",
+                        "last 2 versions"
+                    ]
+                }
+            }
+        ],
+
+        "@babel/preset-react"
+    ]
+}
